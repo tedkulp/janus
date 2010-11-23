@@ -1,0 +1,21 @@
+" Allow use of Alt keys
+set winaltkeys=no
+
+" Alt-T for CommandT
+map <A-t> :CommandT<CR>
+
+" Alt-Shift-F for Ack
+map <A-F> :Ack<space>
+
+" Alt-e for ConqueTerm
+map <A-e> :call StartTerm()<CR>
+
+" Alt-/ to toggle comments
+map <A-/> <plug>NERDCommenterToggle<CR>
+
+" Open markdown files using xdg-open, because
+" alises don't work.
+let g:VMPhtmlreader = 'xdg-open'
+
+" Gist specific items
+let g:gist_open_browser_after_post = 1
