@@ -17,3 +17,6 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set noexpandtab
+
+" Gist specific items
+let g:gist_open_browser_after_post = 1
