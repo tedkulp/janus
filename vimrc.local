@@ -1,0 +1,19 @@
+" Allow use of Alt keys
+set winaltkeys=no
+
+" Alt-T for CommandT
+map <A-t> :CommandT<CR>
+
+" Alt-Shift-F for Ack
+map <A-F> :Ack<space>
+
+" Alt-e for ConqueTerm
+map <A-e> :call StartTerm()<CR>
+
+" Alt-/ to toggle comments
+map <A-/> <plug>NERDCommenterToggle<CR>
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set noexpandtab
