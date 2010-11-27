@@ -7,10 +7,11 @@ autoload
 doc
 plugin
 ruby
-snippets
+snippets/*.snippets
 syntax
 ftdetect
 ftplugin
 colors
 indent
 .VimballRecord
+tags
