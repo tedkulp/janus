@@ -56,8 +56,9 @@ def vim_plugin_task(name, repo=nil)
           current = lines.shift until current =~ /finish$/ # find finish line
 
           while current = lines.shift
-            # first line is the filename, followed by some unknown data
-            file = current[/^(.+?)\s+\[\[\[(\d+)$/, 1]
+            # first line is the filename (possibly followed by garbage)
+            # some vimballs use win32 style path separators
+            path = current[/^(.+?)(\t\[{3}\d)?$/, 1].gsub '\\', '/'
 
             # then the size of the payload in lines
             current = lines.shift
@@ -68,8 +69,8 @@ def vim_plugin_task(name, repo=nil)
 
             # install the data
             Dir.chdir dir do
-              mkdir_p File.dirname(file)
-              File.open(file, 'w'){ |f| f.write(data) }
+              mkdir_p File.dirname(path)
+              File.open(path, 'w'){ |f| f.write(data) }
             end
           end
         end
@@ -140,10 +141,11 @@ vim_plugin_task "rails",            "git://github.com/tpope/vim-rails.git"
 vim_plugin_task "rspec",            "git://github.com/taq/vim-rspec.git"
 vim_plugin_task "zoomwin",          "http://www.vim.org/scripts/download_script.php?src_id=9865"
 vim_plugin_task "snipmate",         "git://github.com/msanders/snipmate.vim.git"
-vim_plugin_task "autoclose",        "git://github.com/vim-scripts/AutoClose.git"
+vim_plugin_task "delimitmate",      "git://github.com/Raimondi/delimitMate.git"
 vim_plugin_task "markdown",         "git://github.com/tpope/vim-markdown.git"
 vim_plugin_task "align",            "git://github.com/tsaleh/vim-align.git"
 vim_plugin_task "unimpaired",       "git://github.com/tpope/vim-unimpaired.git"
+vim_plugin_task "searchfold",       "git://github.com/vim-scripts/searchfold.vim.git"
 vim_plugin_task "bufexplorer",      "http://www.vim.org/scripts/download_script.php?src_id=14208"
 vim_plugin_task "gist-vim",         "git://github.com/mattn/gist-vim.git"
 vim_plugin_task "yankring",			"http://www.vim.org/scripts/download_script.php?src_id=13554"
@@ -196,11 +198,6 @@ vim_plugin_task "mustasche" do
   sh "curl http://github.com/defunkt/mustache/raw/master/contrib/mustache.vim > syntax/mustache.vim"
 end
 
-desc "Cleanup all the files"
-task :clean do
-  rm_rf "tmp"
-end
-
 desc "Update the documentation"
 task :update_docs do
   puts "Updating VIM Documentation..."
@@ -217,7 +214,18 @@ task :link_vimrc do
   end
 end
 
+task :clean do
+  system "git clean -dfx"
+end
+
+task :pull do
+  system "git pull"
+end
+
 task :default => [
   :update_docs,
   :link_vimrc
 ]
+
+task :upgrade => [:clean, :pull, :default]
+
