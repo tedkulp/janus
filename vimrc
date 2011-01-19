@@ -97,9 +97,13 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " Bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
+
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+
+" Hide the highlighting of the last search term
+nnoremap <expandsc> :noh<return><esc>
 
 " Use modeline overrides
 set modeline
