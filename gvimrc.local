@@ -15,7 +15,7 @@ map <A-/> <plug>NERDCommenterToggle<CR>
 
 " Open markdown files using xdg-open, because
 " alises don't work.
-let g:VMPhtmlreader = 'xdg-open'
+" let g:VMPhtmlreader = 'xdg-open'
 
 " Gist specific items
 let g:gist_open_browser_after_post = 1

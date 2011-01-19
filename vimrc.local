@@ -16,7 +16,9 @@ set noerrorbells
 color molokai
 
 " Ack-grep for Debian/Ubunut
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+if !has("gui_macvim")
+ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+endif
 
 " Easy window navigation
 map <C-h> <C-w>h
