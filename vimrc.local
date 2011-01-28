@@ -28,3 +28,6 @@ map <C-l> <C-w>l
 
 " Add Git info to status line
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P"
+
+" Get $ not to be selected when double clicking in php
+au FileType php		set iskeyword=@,48-57,_,192-225
