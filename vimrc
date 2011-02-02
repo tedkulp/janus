@@ -102,6 +102,10 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
+" Enable syntastic syntax checking
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_warnings=1
+
 " Hide the highlighting of the last search term
 nnoremap <expandsc> :noh<return><esc>
 
@@ -112,7 +116,7 @@ set modelines=10
 " Default color scheme
 color desert
 
-"Directories for swp files
+" Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
