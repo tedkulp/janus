@@ -121,7 +121,7 @@ def vim_plugin_task(name, repo=nil)
 end
 
 vim_plugin_task "ack.vim",          "git://github.com/mileszs/ack.vim.git"
-vim_plugin_task "color-sampler",    "http://www.vim.org/scripts/download_script.php?src_id=12179"
+vim_plugin_task "color-sampler",    "git://github.com/vim-scripts/Color-Sampler-Pack.git"
 vim_plugin_task "conque",           "http://conque.googlecode.com/files/conque_1.1.tar.gz"
 vim_plugin_task "fugitive",         "git://github.com/tpope/vim-fugitive.git"
 vim_plugin_task "git",              "git://github.com/tpope/vim-git.git"
@@ -133,13 +133,13 @@ vim_plugin_task "markdown_preview", "git://github.com/robgleeson/vim-markdown-pr
 vim_plugin_task "nerdtree",         "git://github.com/wycats/nerdtree.git"
 vim_plugin_task "nerdcommenter",    "git://github.com/ddollar/nerdcommenter.git"
 vim_plugin_task "surround",         "git://github.com/tpope/vim-surround.git"
-vim_plugin_task "taglist",          "http://vim.sourceforge.net/scripts/download_script.php?src_id=7701"
+vim_plugin_task "taglist",          "git://github.com/vim-scripts/taglist.vim.git"
 vim_plugin_task "vividchalk",       "git://github.com/tpope/vim-vividchalk.git"
 vim_plugin_task "cucumber",         "git://github.com/tpope/vim-cucumber.git"
 vim_plugin_task "textile",          "git://github.com/timcharper/textile.vim.git"
 vim_plugin_task "rails",            "git://github.com/tpope/vim-rails.git"
 vim_plugin_task "rspec",            "git://github.com/taq/vim-rspec.git"
-vim_plugin_task "zoomwin",          "http://www.vim.org/scripts/download_script.php?src_id=9865"
+vim_plugin_task "zoomwin",          "git://github.com/vim-scripts/ZoomWin.git"
 vim_plugin_task "snipmate",         "git://github.com/msanders/snipmate.vim.git"
 vim_plugin_task "markdown",         "git://github.com/tpope/vim-markdown.git"
 vim_plugin_task "align",            "git://github.com/tsaleh/vim-align.git"
@@ -153,14 +153,15 @@ vim_plugin_task "gist-vim",         "git://github.com/mattn/gist-vim.git"
 vim_plugin_task "yankring",			"http://www.vim.org/scripts/download_script.php?src_id=13554"
 vim_plugin_task "session",          "http://www.vim.org/scripts/download_script.php?src_id=14614"
 vim_plugin_task "syntastic",        "git://github.com/scrooloose/syntastic.git"
+vim_plugin_task "puppet",           "git://github.com/ajf/puppet-vim.git"
 
 vim_plugin_task "command_t",        "git://github.com/wincent/Command-T.git" do
   sh "find ruby -name '.gitignore' | xargs rm"
   Dir.chdir "ruby/command-t" do
-    if `rvm > /dev/null 2>&1` && $?.exitstatus == 0
+    if File.exists?("/usr/bin/ruby") # prefer system rubies
+      sh "/usr/bin/ruby extconf.rb"
+    elsif `rvm > /dev/null 2>&1` && $?.exitstatus == 0
       sh "rvm system ruby extconf.rb"
-    else
-      sh "/usr/bin/ruby extconf.rb" # assume /usr/bin/ruby is system ruby
     end
     sh "make clean && make"
   end
