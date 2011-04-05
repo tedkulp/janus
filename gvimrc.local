@@ -1,17 +1,17 @@
 " Allow use of Alt keys
-set winaltkeys=no
+" set winaltkeys=no
 
 " Alt-T for CommandT
-map <A-t> :CommandT<CR>
+" map <A-t> :CommandT<CR>
 
 " Alt-Shift-F for Ack
-map <A-F> :Ack<space>
+" map <A-F> :Ack<space>
 
 " Alt-e for ConqueTerm
-map <A-e> :call StartTerm()<CR>
+" map <A-e> :call StartTerm()<CR>
 
 " Alt-/ to toggle comments
-map <A-/> <plug>NERDCommenterToggle<CR>
+" map <D-/> <plug>NERDCommenterToggle<CR>
 
 " Open markdown files using xdg-open, because
 " alises don't work.
