@@ -160,6 +160,7 @@ vim_plugin_task "syntastic",        "git://github.com/scrooloose/syntastic.git"
 vim_plugin_task "puppet",           "git://github.com/ajf/puppet-vim.git"
 vim_plugin_task "gist-vim",         "git://github.com/mattn/gist-vim.git"
 vim_plugin_task "zencoding",        "git://github.com/mattn/zencoding-vim.git"
+vim_plugin_task "jekyll",           "git://github.com/tedkulp/jekyll.vim.git"
 
 vim_plugin_task "hammer",           "git://github.com/robgleeson/hammer.vim.git" do
   sh "gem install github-markup redcarpet"

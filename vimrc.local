@@ -34,3 +34,10 @@ au FileType php		set iskeyword=@,48-57,_,192-225
 
 " ,c to convert underscored words to camelcase
 vnoremap ,c :s/\%V_\([a-z]\)\%V/\u\1/g<CR>
+
+" Jekyll stuff
+let g:jekyll_path = "/Users/tedkulp/ruby/jekyll/_source"
+let g:jekyll_posts_path = "/Users/tedkulp/Dropbox/tedkulp.com/_posts"
+let g:jekyll_drafts_path = "/Users/tedkulp/Dropbox/tedkulp.com/_drafts"
+let g:jekyll_prompt_tags = "true"
+let g:jekyll_post_published = "false"
