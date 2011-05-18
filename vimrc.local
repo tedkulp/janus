@@ -1,7 +1,7 @@
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set noexpandtab
+au Filetype php set tabstop=4
+au Filetype php set shiftwidth=4
+au Filetype php set softtabstop=4
+au Filetype php set noexpandtab
 
 set nobackup
 set noswapfile
