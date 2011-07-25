@@ -40,6 +40,7 @@ let g:jekyll_path = "/Users/tedkulp/ruby/jekyll/_source"
 let g:jekyll_posts_path = "/Users/tedkulp/Dropbox/tedkulp.com/_posts"
 let g:jekyll_drafts_path = "/Users/tedkulp/Dropbox/tedkulp.com/_drafts"
 let g:jekyll_prompt_tags = "true"
+let g:jekyll_post_date = "true"
 
 map <Leader>jn  :JekyllPost<CR>
 map <Leader>jd  :JekyllDraft<CR>

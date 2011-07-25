@@ -162,9 +162,9 @@ vim_plugin_task "gist-vim",         "git://github.com/mattn/gist-vim.git"
 vim_plugin_task "zencoding",        "git://github.com/mattn/zencoding-vim.git"
 vim_plugin_task "jekyll",           "git://github.com/tedkulp/jekyll.vim.git"
 
-vim_plugin_task "hammer",           "git://github.com/robgleeson/hammer.vim.git" do
-  sh "gem install github-markup redcarpet"
-end
+#vim_plugin_task "hammer",           "git://github.com/robgleeson/hammer.vim.git" do
+#  sh "gem install github-markup redcarpet"
+#end
 
 vim_plugin_task "command_t",        "http://s3.wincent.com/command-t/releases/command-t-1.2.1.vba" do
   Dir.chdir "ruby/command-t" do
@@ -208,7 +208,7 @@ vim_plugin_task "janus_themes" do
 end
 
 vim_plugin_task "molokai" do
-  sh "curl https://github.com/mrtazz/molokai.vim/raw/master/colors/molokai.vim > colors/molokai.vim"
+  sh "curl https://raw.github.com/mrtazz/molokai.vim/master/colors/molokai.vim > colors/molokai.vim"
 end
 vim_plugin_task "mustache" do
   sh "curl https://github.com/defunkt/mustache/raw/master/contrib/mustache.vim > syntax/mustache.vim"
