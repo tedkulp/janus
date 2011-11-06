@@ -45,3 +45,13 @@ let g:jekyll_post_date = "true"
 map <Leader>jn  :JekyllPost<CR>
 map <Leader>jd  :JekyllDraft<CR>
 map <Leader>jl  :JekyllList<CR>
+
+let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
+map <Leader>ll  :Tlist<CR>
+
+" Too slow!!!
+if has("gui_macvim")
+  autocmd FileType ruby,eruby set noballooneval
+  " set noballooneval
+  " set balloondelay=100000
+endif
